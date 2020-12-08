@@ -9,16 +9,20 @@ void setup() {
   //Initialize = Give an intial value
   xPosition = 200;
   yPosition = 250;
-  faceSize = 1; 
+  faceSize = 1.5; 
   
 }
 
 void draw() {
-  xPosition = mouseX;
-  yPosition = mouseY;
+  faceSize = 0.25 + mouseY/200.0;
+  xPosition = mouseX/faceSize;
+  yPosition = mouseY/faceSize;
   
   background(220);
   
+  text(faceSize,50,50);
+
+  scale(faceSize);
   noStroke();
   
   //Face
@@ -32,12 +36,12 @@ void draw() {
   
   //Mouth
   fill(255,0,0);
-  ellipse(xPosition,yPosition+50,100*faceSize,50);
+  ellipse(xPosition,yPosition+50,100,50);
   
   
   //Eyebrows
   fill(0);
-  rect(xPosition-75,yPosition-75,150*faceSize,10);
+  rect(xPosition-75,yPosition-75,150,10);
   
   
 }
