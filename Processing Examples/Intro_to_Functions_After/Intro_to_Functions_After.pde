@@ -19,9 +19,10 @@ void draw() {
   background(220);
   
   //text(faceSize,50,50);
-  drawCharacter(mouseX,mouseY,1);
-  drawCharacter(50,150,1);
+  
+  drawCharacter(50,150,0.5);
   drawCharacter(350,150,1);
+  drawCharacter(mouseX,mouseY,0.5);
 
 
   
@@ -40,8 +41,8 @@ sizeIn:   float - the size of the character on the screen
 void drawCharacter(float xPosIn, float yPosIn, float sizeIn) {
   
   float faceSize = sizeIn;
-  float xPosition = xPosIn;
-  float yPosition = yPosIn;
+  float xPosition = xPosIn/faceSize;
+  float yPosition = yPosIn/faceSize;
   
   
   scale(faceSize);
@@ -64,5 +65,6 @@ void drawCharacter(float xPosIn, float yPosIn, float sizeIn) {
   //Eyebrows
   fill(0);
   rect(xPosition-75,yPosition-75,150,10);
+  resetMatrix();
   
 }
