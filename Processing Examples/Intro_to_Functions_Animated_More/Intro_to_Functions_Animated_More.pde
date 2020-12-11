@@ -18,7 +18,13 @@ void draw() {
   background(220);
   
   eyeBrowAngle = eyeBrowAngle+1;
-  drawCharacter(350,50,0.05, -eyeBrowAngle); //small
+  if (eyeBrowAngle >= 90) {
+    eyeBrowAngle = 0;
+  }
+  
+  mrSmallYPosition = mrSmallYPosition + mrSmallSpeed;
+  
+  drawCharacter(350,mrSmallYPosition,0.25, -eyeBrowAngle); //small
   //drawCharacter(mouseX,mouseY,0.5);
 
 
