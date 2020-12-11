@@ -1,7 +1,9 @@
 PImage img;
 
 void setup() {
-  img = loadImage("laDefense.jpg");
+  size(200,200);
+  //Sourced from: http://www.asdasd.asd.com/asdfasd/asdfasdf
+  img = loadImage("stickperson.png");
 }
 
 void draw() {

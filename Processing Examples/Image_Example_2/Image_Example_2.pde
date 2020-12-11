@@ -1,9 +1,14 @@
-PImage img;
+//Global Variables
+PImage webImg;
 
 void setup() {
-  img = loadImage("laDefense.jpg");
+  size(200,200);
+  String url = "https://processing.org/img/processing-web.png";
+  // Load image from a web server
+  webImg = loadImage(url, "png");
 }
 
 void draw() {
-  image(img, 0, 0);
+  background(0);
+  image(webImg, 0, 0);
 }
