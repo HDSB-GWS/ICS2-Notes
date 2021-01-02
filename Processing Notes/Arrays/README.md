@@ -30,7 +30,7 @@ void draw() {
 
 This sketch uses a `circleY` variable to show a circle falling down the screen. Incrementing the `circleY` each frame causes it to fall. The `if` statement detects when the circle reaches the bottom, and resets the circle back to the top of the screen.
 
-![falling circle](/Processing%20Notes/Arrays/images/arrays-1.gif)
+![falling circle](images/arrays-1.gif)
 
 # The Bad Way
 
@@ -65,7 +65,7 @@ void draw() {
 
 This code uses two variables: `circleYOne` and `circleYTwo` to show two circles that fall from the top of the screen.
 
-![two falling circles](/Processing%20Notes/Arrays/images/arrays-2.gif)
+![two falling circles](images/arrays-2.gif)
 
 # Creating an Array
 
@@ -214,7 +214,7 @@ void draw() {
 }
 ```
 
-![five falling circles](/Processing%20Notes/Arrays/images/arrays-3.gif)
+![five falling circles](images/arrays-3.gif)
 
 And that's the cool thing about arrays, especially when you use `for` loops with them: you now have 5 falling circles, without any extra code! You only have to write the code that draws, moves, and resets a circle once, and then you can apply that code to every circle in the array.
 
@@ -320,7 +320,7 @@ void draw() {
 }
 ```
 
-![25 falling circles](/Processing%20Notes/Arrays/images/arrays-4.gif)
+![25 falling circles](images/arrays-4.gif)
 
 Imagine how much code this would take if it wasn't using arrays and `for` loops!
 
