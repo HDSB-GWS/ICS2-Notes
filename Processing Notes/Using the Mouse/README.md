@@ -22,7 +22,7 @@ void mousePressed() {
 }
 ```
 
-Add the following line inside the mousePressed function, either before or after the background command: `println(mouseButton, mouseX, mouseY);`{:.java}
+Add the following line inside the mousePressed function, either before or after the background command: `println(mouseButton, mouseX, mouseY);`{:.language-java}
 
 Run the program again and this time keep an eye on the output in the console as you click different mouse buttons on different parts of the window.
 
