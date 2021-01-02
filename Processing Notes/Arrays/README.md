@@ -334,3 +334,6 @@ Arrays are variables that hold multiple values. By combining them with `for` loo
 
 - Create a sketch that shows rain drops or snow flakes falling.
 - Create a sketch that shows a trail of circles that follow the mouse. Hint:. store the previous 25 positions of the mouse in an array and draw those to the screen!
+
+# Credits
+Thanks to Kevin Workman of [Happy Coding](https://happycoding.io/tutorials/processing/arrays) for the original source material for this note.
