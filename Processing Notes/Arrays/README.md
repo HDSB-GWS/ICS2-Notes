@@ -1,18 +1,6 @@
----
-layout: tutorial
-title: Arrays
-thumbnail: /tutorials/processing/images/arrays-5.gif
-tagline: Create variables that hold multiple values.
-sort-key: 900
-meta-title: Arrays in Processing
-meta-description: Learn how to use arrays in Processing. Use arrays to store multiple values in a single variable!
-meta-image: /tutorials/processing/images/arrays-6.png
-tags: [tutorial, processing, arrays]
----
+# Arrays
 
-{% include toc.md %}
-
-Now you know how to [create variables](/tutorials/processing/creating-variables) and [functions](/tutorials/processing/creating-functions), and you know how to use [`for` loops](/tutorials/processing/for-loops) to repeat a block of code.
+Now you know how to [create variables](tbc) and [functions](tbc), and you know how to use [`for` loops](tbc) to repeat a block of code.
 
 So far, the variables you've seen have held a single value. This tutorial introduces **arrays**, which hold multiple values.
 
@@ -42,7 +30,7 @@ void draw() {
 
 This sketch uses a `circleY` variable to show a circle falling down the screen. Incrementing the `circleY` each frame causes it to fall. The `if` statement detects when the circle reaches the bottom, and resets the circle back to the top of the screen.
 
-![falling circle](/tutorials/processing/images/arrays-1.gif)
+![falling circle](/Processing%20Notes/Arrays/images/arrays-1.gif)
 
 # The Bad Way
 
@@ -77,7 +65,7 @@ void draw() {
 
 This code uses two variables: `circleYOne` and `circleYTwo` to show two circles that fall from the top of the screen.
 
-![two falling circles](/tutorials/processing/images/arrays-2.gif)
+![two falling circles](/Processing%20Notes/Arrays/images/arrays-2.gif)
 
 # Creating an Array
 
@@ -226,11 +214,9 @@ void draw() {
 }
 ```
 
-![five falling circles](/tutorials/processing/images/arrays-3.gif)
+![five falling circles](/Processing%20Notes/Arrays/images/arrays-3.gif)
 
 And that's the cool thing about arrays, especially when you use `for` loops with them: you now have 5 falling circles, without any extra code! You only have to write the code that draws, moves, and resets a circle once, and then you can apply that code to every circle in the array.
-
-{% include codepen-new.html slug-hash="rrGmww" height="300" %}
 
 # Array Length
 
@@ -334,11 +320,9 @@ void draw() {
 }
 ```
 
-![25 falling circles](/tutorials/processing/images/arrays-4.gif)
+![25 falling circles](/Processing%20Notes/Arrays/images/arrays-4.gif)
 
 Imagine how much code this would take if it wasn't using arrays and `for` loops!
-
-{% include codepen-new.html slug-hash="yazbob" height="300" %}
 
 **Challenge:** Change this code to show 100 falling circles, all falling at different speeds!
 
