@@ -56,9 +56,9 @@ void draw() {
   if (circleYOne > height) {
     circleYOne = 0;
   }
-  
+
   if(circleYTwo > height){
-   circleYTwo = 0; 
+   circleYTwo = 0;
   }
 }
 ```
@@ -175,7 +175,7 @@ ellipse(250, circleY[4], 25, 25);
 
 (I'm leaving out the code for moving and resetting the circles, but imagine how long that code would be!)
 
-This will work, but notice that this code contains a **pattern**: it uses an index that starts at `0`, increases by `1`, and stops at `4`. 
+This will work, but notice that this code contains a **pattern**: it uses an index that starts at `0`, increases by `1`, and stops at `4`.
 
 That means you can rewrite this code to use a `for` loop instead!
 
@@ -287,7 +287,7 @@ Or better yet, you can use a `for` loop:
 ```java
 for (int i = 0; i < circleY.length; i++) {
   circleY[i] = (i + 1) * 50;
-} 
+}
 ```
 
 # The Payoff
