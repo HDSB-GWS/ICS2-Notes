@@ -1,363 +1,352 @@
 ---
 layout: tutorial
-title: For Loops
-thumbnail: /tutorials/processing/images/for-loops-7.png
-tagline: Use patterns to repeat work without repeating code.
-sort-key: 800
-meta-title: For loops
-meta-description: Learn how to use for loops in Processing.
-meta-image: /tutorials/processing/images/for-loops-7.png
-tags: [tutorial, processing, for-loops]
-previousPost: /tutorials/processing/input
+title: Arrays
+thumbnail: /tutorials/processing/images/arrays-5.gif
+tagline: Create variables that hold multiple values.
+sort-key: 900
+meta-title: Arrays in Processing
+meta-description: Learn how to use arrays in Processing. Use arrays to store multiple values in a single variable!
+meta-image: /tutorials/processing/images/arrays-6.png
+tags: [tutorial, processing, arrays]
 ---
 
 {% include toc.md %}
 
-Now you know how to write code using [functions](/tutorials/processing/creating-functions), [variables](/tutorials/processing/creating-variables), and [if statements](/tutorials/processing/if-statements). So far your code has worked by executing each line one after the other: if you want to draw three circles, you'd have to write three separate calls to the `ellipse` function.
+Now you know how to [create variables](/tutorials/processing/creating-variables) and [functions](/tutorials/processing/creating-functions), and you know how to use [`for` loops](/tutorials/processing/for-loops) to repeat a block of code.
 
-This tutorial introduces `for` loops, which allow you to repeat work without repeating code.
+So far, the variables you've seen have held a single value. This tutorial introduces **arrays**, which hold multiple values.
 
-# Patterns
+# Multiple Variables
 
 Let's start with an example sketch:
 
 ```java
+float circleY = 0;
+
 void setup() {
   size(300, 300);
 }
 
 void draw() {
-  background(100);
-  stroke(255);
+  background(50);
 
-  line(75, 0, 75, height);
-  line(150, 0, 150, height);
-  line(225, 0, 225, height);
+  ellipse(150, circleY, 25, 25);
+
+  circleY++;
+
+  if (circleY > height) {
+    circleY = 0;
+  }
 }
 ```
 
-This sketch draws three vertical lines: the first from position `75,0` to `55,height`; the second from position `150,0` to `150,height`; and the third from position `225,0` to `225,height`.
+This sketch uses a `circleY` variable to show a circle falling down the screen. Incrementing the `circleY` each frame causes it to fall. The `if` statement detects when the circle reaches the bottom, and resets the circle back to the top of the screen.
 
-![3 lines](/tutorials/processing/images/for-loops-1.png)
+![falling circle](/tutorials/processing/images/arrays-1.gif)
 
-{% include codepen-new.html slug-hash="dyGoLYg" height="300" %}
+# The Bad Way
 
-As you read this code, try to recognize the pattern in the three lines: the x position of the first line starts at `75`, then increases by `75` for the second line, and stops at `225` for the third line.
+What if you want to add another circle? You might be tempted to use another variable:
 
-When you have a pattern like this (start at a number, increase by a number, stop at a number), you can use `for` loops to follow that pattern to repeat code.
+```java
+float circleYOne = 0;
+float circleYTwo = 0;
+
+void setup() {
+  size(300, 300);
+}
+
+void draw() {
+  background(50);
+
+  ellipse(100, circleYOne, 25, 25);
+  ellipse(200, circleYTwo, 25, 25);
+
+  circleYOne++;
+  circleYTwo += 2;
+
+  if (circleYOne > height) {
+    circleYOne = 0;
+  }
+  
+  if(circleYTwo > height){
+   circleYTwo = 0; 
+  }
+}
+```
+
+This code uses two variables: `circleYOne` and `circleYTwo` to show two circles that fall from the top of the screen.
+
+![two falling circles](/tutorials/processing/images/arrays-2.gif)
+
+# Creating an Array
+
+What if you wanted to add a third circle? Or ten more circles? You could keep adding variables, but that's going to make your program very long and hard to work with. Instead, you can use an **array**.
+
+An array is a single variable that holds multiple values. Remember that to create a variable you need to give it a type, a name, and a value. To create an array, you need to do three things:
+
+- Give it an **array type**. An array type is a normal type with square brackets `[]` after it, meaning that the variable will hold multiple values of that type.
+- Give it a name.
+- Give it an **array value**. An array value is multiple values inside curly brackets `{}` and separated by commas.
+
+For example, this line of code creates a `float[]` array named `circleY` that holds two values, `10` and `20`:
+
+```java
+float[] circleY = {10, 20};
+```
+
+# Accessing an Array
+
+An array is a variable that holds multiple values. To use an individual value inside an array, you can use the **array access** operator. The array access operator is an `int` value inside square brackets `[]`. The `int` value provides the **index** of the array value that you want to use. For example, this line of code accesses the first and second values from the array to draw two circles:
+
+```java
+ellipse(100, circleY[0], 25, 25);
+ellipse(200, circleY[1], 25, 25);
+```
+
+This line of code does the same thing as before, but now it's getting the values from an array instead of two separate variables.
+
+# Start at Zero
+
+You might notice that the code uses `0` instead of `1` to get the first value from the array. That's because array indexes start at zero!
+
+The **second** value from the array has `1` as an index:
+
+```java
+// draw the second circle
+ellipse(200, circleY[1], 25, 25);
+```
+
+This can be pretty confusing, but remember that array indexes start at zero. So if you have an array with ten values, the last index is `9`.
+
+# Setting an Array Index
+
+Just like you can modify the value a variable holds, you can modify the value an array index holds.
+
+This line of code reassigns the first index of the array to a new value:
+
+```java
+circleY[0] = 42;
+```
+
+And this line of code adds 5 to the first array index:
+
+```java
+circleY[0] = circleY[0] + 5;
+```
+
+Which can be shortened to:
+
+```java
+circleY[0] += 5;
+```
+
+# The Bad Way with Arrays
+
+Putting it all together, you could rewrite the sketch to use arrays instead of single-value variables:
+
+```java
+float[] circleY = {0, 0};
+
+void setup() {
+  size(300, 300);
+}
+
+void draw() {
+  background(50);
+
+  ellipse(100, circleY[0], 25, 25);
+  ellipse(200, circleY[1], 25, 25);
+
+  circleY[0]++;
+  circleY[1] += 2;
+
+  if (circleY[0] > height) {
+    circleY[0] = 0;
+  }
+
+  if (circleY[1] > height) {
+    circleY[1] = 0;
+  }
+}
+```
+
+I'm using this example to show how arrays work, but you wouldn't actually write code like this. If you added a third value to the `circleY` array, you'd still need to add the code that uses that new value. That's going to get very annoying! Instead of copying the same line of code over and over again, you can use `for` loops to make your life easier.
 
 # For Loops
 
-To write a `for` loop, first type the `for` keyword, and then in parentheses `()` provide three things:
-
-- Declare a variable to keep track of your pattern, and initialize it to the number your pattern starts at: `int lineX = 75;`
-- Write a test that evaluates to a `boolean` value of `false` whenever the pattern should stop: `lineX <= 225;`
-- Reassign the variable so that it follows the pattern: `lineX = lineX + 75;` (which can be shortened to `lineX += 75`)
-
-Then inside curly brackets `{}`, write the code that uses your variable to follow the pattern. Putting it all together, it looks like this:
+Let's say the `circleY` array holds five values. You can write code that draws five circles:
 
 ```java
-void setup() {
-  size(300, 300);
-}
+ellipse(50, circleY[0], 25, 25);
+ellipse(100, circleY[1], 25, 25);
+ellipse(150, circleY[2], 25, 25);
+ellipse(200, circleY[3], 25, 25);
+ellipse(250, circleY[4], 25, 25);
+```
 
-void draw() {
-  background(100);
-  stroke(255);
+(I'm leaving out the code for moving and resetting the circles, but imagine how long that code would be!)
 
-  for (int lineX = 75; lineX <= 225; lineX += 75) {
-    line(lineX, 0, lineX, height);
-  }
+This will work, but notice that this code contains a **pattern**: it uses an index that starts at `0`, increases by `1`, and stops at `4`. 
+
+That means you can rewrite this code to use a `for` loop instead!
+
+```java
+for (int i = 0; i < 5; i++) {
+  ellipse(50 * (i+1), circleY[i], 25, 25);
 }
 ```
 
-This is new syntax, so let's go over it piece by piece:
+This code uses a `for` loop with a loop variable `i` that goes from `0` to `4`. When the `i` variable reaches `5`, then `i < 5` evaluates to `false` and the loop exits.
 
-- `int lineX = 75;` creates a **loop variable** with a value of `75`. This only happens **once**, at the very beginning of the loop.
-- `lineX <= 225;` decides when to keep looping. This test is evaluated every step (which is called an **iteration**) of the pattern, at the **beginning** of the iteration. Whenever the test evaluates to `false`, the pattern is over and the loop stops iterating.
-- `lineX += 75` updates the loop variable. This happens at the **end** of every iteration, after the body of the loop has run.
-- `line(lineX, 0, lineX, height);` uses the `lineX` variable to draw a line each iteration of the loop.
+Inside the body of the loop, the code uses that loop variable to access every index of the array. It also uses that loop variable to calculate the `x` value of each circle.
 
-At the end of each iteration (when the code reaches the closing curly bracket `}`), a couple things happen:
-
-- The code executes your reassignment statement to update the loop variable.
-- Then the code jumps back to the beginning of the `for` loop.
-- The check is evaluated, and if it's `true`, the body of the loop is executed again. If it's `false`, the loop exits and skips over the body.
-
-This might seem like a lot to take in, but you can think about it as a few steps:
-
-1. A loop variable is created and initialized to the first number in the pattern.
-2. The check is evaluated, and if it's `false`, the loop exits and its body is skipped. If it's `true`, then the body is executed.
-3. After the body executes, the loop variable is updated.
-4. Then the code jumps back to the beginning of the loop and performs the check again.
-
-{% include codepen-new.html slug-hash="wzAdWB" height="300" %}
-
-# The Benefit of For Loops
-
-Three lines might not seem very interesting, but `for` loops make it easier to make more complicated patterns. For example, what if you wanted to draw nine lines instead of three lines?
-
-You could write code that draws each line manually:
+You can rewrite the code to use a `for` loop:
 
 ```java
+float[] circleY = {50, 100, 150, 200, 250};
+
 void setup() {
   size(300, 300);
 }
 
 void draw() {
-  background(100);
-  stroke(255);
+  background(50);
 
-  line(30, 0, 30, height);
-  line(60, 0, 60, height);
-  line(90, 0, 90, height);
-  line(120, 0, 120, height);
-  line(150, 0, 150, height);
-  line(180, 0, 180, height);
-  line(210, 0, 210, height);
-  line(240, 0, 240, height);
-  line(270, 0, 270, height);
-}
-```
+  for (int i = 0; i < 5; i++) {
+    float circleX = 50 * (i + 1);
+    ellipse(circleX, circleY[i], 25, 25);
 
-This works, but it's pretty annoying to work with code like this.
+    circleY[i]++;
 
-Read the code and try to notice the pattern: the first line has an  `x` value of `30`, which increases by `30` each step, and ends at `270`. Since you have a pattern, that means you can use a `for` loop to do this in a more manageable way:
-
-```java
-void setup() {
-  size(300, 300);
-}
-
-void draw() {
-  background(100);
-  stroke(255);
-
-  for (int lineX = 30; lineX <= 270; lineX += 30) {
-    line(lineX, 0, lineX, height);
-  }
-}
-```
-
-This code uses a `for` loop to create a pattern where `lineX` starts at `30`, increases by `30` each iteration, and stops when `lineX` is greater than `270`. During each step of the pattern, the code draws a vertical line using the `lineX` variable.
-
-![9 lines](/tutorials/processing/images/for-loops-2.png)
-
-{% include codepen-new.html slug-hash="MWKwRLV" height="300" %}
-
-Here's the payoff: what if you wanted to draw 99 lines? You can use a `for` loop to draw the pattern for you instead of writing 99 lines of code:
-
-```java
-void setup() {
-  size(300, 300);
-}
-
-void draw() {
-  background(100);
-  stroke(255);
-
-  for (int lineX = 3; lineX <= 297; lineX += 3) {
-    line(lineX, 0, lineX, height);
-  }
-}
-```
-
-![99 lines](/tutorials/processing/images/for-loops-3.png)
-
-{% include codepen-new.html slug-hash="ZEQGZNR" height="300" %}
-
-To understand the power of `for` loops, imagine writing this sketch without them!
-
-# Nested For Loops
-
-You can put any code inside a `for` loop- including another `for` loop!
-
-For example, let's start with a program that draws a row of circles:
-
-```java
-void setup() {
-  size(300, 300);
-}
-
-void draw() {
-  background(100);
-
-  for (int circleX = 75; circleX <= 225; circleX += 75) {
-    ellipse(circleX, 150, 50, 50);
-  }
-}
-```
-
-This sketch uses a `for` loop to draw three circles: one at `75,150`, another at `150,150`, and a third one at `225,150`.
-
-![three circles](/tutorials/processing/images/for-loops-4.png)
-
-You can think of this `for` loop as a single unit that draws a row of circles. What if you wanted to draw **three** rows of circles?
-
-You could use three separate `for` loops, one for each row:
-
-```java
-void setup() {
-  size(300, 300);
-}
-
-void draw() {
-  background(100);
-
-  for (int circleX = 75; circleX <= 225; circleX += 75) {
-    ellipse(circleX, 75, 50, 50);
-  }
-
-  for (int circleX = 75; circleX <= 225; circleX += 75) {
-    ellipse(circleX, 150, 50, 50);
-  }
-
-  for (int circleX = 75; circleX <= 225; circleX += 75) {
-    ellipse(circleX, 225, 50, 50);
-  }
-}
-```
-
-![three rows of circles](/tutorials/processing/images/for-loops-5.png)
-
-This code works, but it's going to be annoying if you want to add another circle to each row, or change the diameter of the circles: you'd have to change the code in three different places.
-
-Looking at the vertical position of each row, you might notice a pattern: it starts at `75`, increases by `75` each step, and ends at `225`. This sounds like a job for another `for` loop!
-
-```java
-void setup() {
-  size(300, 300);
-}
-
-void draw() {
-  background(100);
-
-  for (int circleY = 75; circleY <= 225; circleY += 75) {
-    for (int circleX = 75; circleX <= 225; circleX += 75) {
-      ellipse(circleX, circleY, 50, 50);
+    if (circleY[i] > height) {
+      circleY[i] = 0;
     }
   }
 }
 ```
 
-The outer loop creates a `circleY` variable and iterates three times. During each iteration of the outer loop, the inner loop creates a `circleX` variable and iterates three times. The end result is nine circles in a grid, or three rows of three circles each.
+![five falling circles](/tutorials/processing/images/arrays-3.gif)
 
-{% include codepen-new.html slug-hash="qaPmNK" height="300" %}
+And that's the cool thing about arrays, especially when you use `for` loops with them: you now have 5 falling circles, without any extra code! You only have to write the code that draws, moves, and resets a circle once, and then you can apply that code to every circle in the array.
 
-Try thinking about the inner `for` loop as a single unit, and the outer `for` loop as a loop that executes that unit multiple times. To make that explicit, you could put the inner `for` loop inside a function, which gets called from the outer loop:
+{% include codepen-new.html slug-hash="rrGmww" height="300" %}
+
+# Array Length
+
+When you're using a `for` loop with an array, you have to know how many values are in the array, so you know which index to stop at.
+
+When there are **two** values, the `for` loop looks like this:
 
 ```java
+for (int i = 0; i < 2; i++) {
+```
+
+And when there are **ten** values, the `for` loop looks like this:
+
+```java
+for (int i = 0; i < 10; i++) {
+```
+
+In other words, you always want to stop the loop when its loop variable equals the number of elements in the array, which is also called the **length** of the array. If you try to access an index that's larger than the length, you'll get an error!
+
+So if you add a variable to the array initialization (the values in the curly brackets `{}`), you'll have to change the check in the `for` loop. Wouldn't it be nice if the computer could keep track of that for you?
+
+You guessed it: the computer does keep track of the length of an array! To use the length value, you type `.length` after the name of an array:
+
+```java
+int numberOfValues = circleY.length;
+```
+
+You can use this length variable exactly like you can any other variable, including in a `for` loop check:
+
+```java
+for (int i = 0; i < circleY.length; i++) {
+```
+
+Now if you add values to the array, you no longer have to modify the `for` loop check yourself. The `length` variable will always contain the length of the array, so the `for` loop will work no matter how many elements the array contains.
+
+# Delayed Initialization
+
+Remember that **declaring** a variable means giving it a type and a name, and **initializing** a variable means giving it a starting value. **Reassigning** a variable means changing its value.
+
+So far, the code above has initialized arrays as soon as it declares them, using values inside curly brackets `{}`:
+
+```java
+float[] circleY = {50, 100, 150, 200, 250};
+```
+
+But what if you don't know what the values should be yet? In this case, you can delay the initialization of the array.
+
+To create an array without initializing its values, you use the `new` keyword, followed by the array type, and then you give the array a size inside square brackets `[]`.
+
+This line of code creates an array with five empty indexes:
+
+```java
+float[] circleY = new float[5];
+```
+
+Now you can set the value of each of the indexes individually:
+
+```java
+  circleY[0] = 50;
+  circleY[1] = 100;
+  circleY[2] = 150;
+  circleY[3] = 200;
+  circleY[4] = 250;
+```
+
+Or better yet, you can use a `for` loop:
+
+```java
+for (int i = 0; i < circleY.length; i++) {
+  circleY[i] = (i + 1) * 50;
+} 
+```
+
+# The Payoff
+
+Putting all of this together, here's an example that shows 25 falling circles:
+
+```java
+float[] circleY = new float[25];
+
 void setup() {
   size(300, 300);
-}
-
-void draw() {
-  background(100);
-
-  for (int rowY = 75; rowY <= 225; rowY += 75) {
-    drawCircleRow(rowY);
+  for (int i = 0; i < circleY.length; i++) {
+    circleY[i] = random(height);
   }
 }
 
-void drawCircleRow(int rowY) {
-  for (int circleX = 75; circleX <= 225; circleX += 75) {
-    ellipse(circleX, rowY, 50, 50);
+void draw() {
+  background(50);
+
+  for (int i = 0; i < circleY.length; i++) {
+    float circleX = width * i / circleY.length;
+    ellipse(circleX, circleY[i], 25, 25);
+
+    circleY[i]++;
+
+    if (circleY[i] > height) {
+      circleY[i] = 0;
+    }
   }
 }
 ```
 
-This code does the same thing as before, but it encapsulates the inner `for` loop inside the `drawCircleRow` function. The `for` loop inside the `draw` function calls the `drawCircleRow` function three times. The `drawCircleRow` function uses its own `for` loop to draw a row of circles.
+![25 falling circles](/tutorials/processing/images/arrays-4.gif)
 
-Moving your inner for loop into a function can help you think of it as a single unit, and can make your code easier to read.
+Imagine how much code this would take if it wasn't using arrays and `for` loops!
 
-# Indexes
+{% include codepen-new.html slug-hash="yazbob" height="300" %}
 
-The above examples used loop variables that were then used directly in the body of the `for` loop, like `lineX` and `circleX`.
-
-Another common approach you'll see is to use **index** loop variables (often named `i` or `j`) that represent how many times the loop should iterate.
-
-Here's the line example from above, using an index loop variable:
-
-```java
-void setup() {
-  size(300, 300);
-}
-
-void draw() {
-  background(100);
-  stroke(255);
-
-  for (int i = 1; i <= 9; i++) {
-    int lineX = i * 30;
-    line(lineX, 0, lineX, height);
-  }
-}
-```
-
-![9 lines](/tutorials/processing/images/for-loops-2.png)
-
-This code still does the same thing, but it's more obvious how many lines will be drawn by reading the `for` loop. The pattern is created by basing the `lineX` variable off the `i` variable, and increasing the `i` variable by `1` each iteration of the loop.
-
-This approach also makes it easier to apply multiple effects to your pattern. For example, this code increases the thickness of the lines as they get closer to the right side of the window:
-
-```java
-void setup() {
-  size(300, 300);
-}
-
-void draw() {
-  background(100);
-  stroke(255);
-
-  for (int i = 1; i <= 9; i++) {
-    strokeWeight(i * 2);
-
-    int lineX = i * 30;
-    line(lineX, 0, lineX, height);
-  }
-}
-```
-
-![thicker lines](/tutorials/processing/images/for-loops-6.png)
-
-{% include codepen-new.html slug-hash="abdOrqo" height="300" %}
-
-Whether you use an index variable or not is up to you and what seems easier to read. You'll see both approaches in other people's code.
+**Challenge:** Change this code to show 100 falling circles, all falling at different speeds!
 
 # Summary
 
-A `for` loop lets you repeat a pattern without writing the same line of code over and over again. You should use a `for` loop when you have code that uses a pattern that starts at a number, increases by a number, and stops at a number.
-
-A `for` loop inside of another `for` loop is called a **nested `for` loop**. These are useful when your pattern involves more than one number or if you're working with grids.
-
-You can use an **index** variable to base your `for` loop on which step of the pattern you're on, which makes it easier to apply multiple effects at once.
-
-# Cheat Sheet
-
-```java
-void setup() {
-  size(300, 300);
-}
-
-void draw() {
-  background(100);
-  stroke(255);
-
-  for (int lineX = 30; lineX <= 270; lineX += 30) {
-    line(lineX, 0, lineX, height);
-  }
-}
-```
-
-![cheat sheet](/tutorials/processing/images/for-loops-1.png)
+Arrays are variables that hold multiple values. By combining them with `for` loops, you can write programs that handle a lot of data in just a few lines of code.
 
 # Homework
 
-- Write a program that gives you the total of 1+2+3+4+...+100. Hint: try it without `for` loops first and try to find a pattern.
-- Draw a 10x10 grid that fills up the window, no matter what size the window is.
-- Write a program that draws a [horizontal gradient](https://www.google.com/search?q=horizontal+gradient&source=lnms&tbm=isch). Hint: start with grayscale.
-- Write a program that makes every pixel in the window a different random color.
-- Write a program that draws a flower with 8 petals. Hint: try it without `for` loops first and try to find a pattern.
-
-# Credits
-Thanks to Kevin Workman of [Happy Coding](https://happycoding.io/tutorials/processing/arrays) for the original source material for this note.
+- Create a sketch that shows rain drops or snow flakes falling.
+- Create a sketch that shows a trail of circles that follow the mouse. Hint:. store the previous 25 positions of the mouse in an array and draw those to the screen!
