@@ -21,7 +21,7 @@ void draw() {
 Using the `millis()` command and some variables to store delay values you can implement a delay that is **non-blocking**.
 ```java
 int ellipseDrawDelay = 1000; //Draw time delay in miliseconds
-int ellipseDrawTime = 0; //The time the ship was last drawn
+int ellipseDrawTime = 0; //The time the ellipse was last drawn
 int currentTime; //The current time of the program;
 
 void setup() {
@@ -61,7 +61,7 @@ The prior example shows off the concept, but you can get a more refined effect b
 
 //Global Variables
 int ellipseDrawDelay = 1000; //Draw time delay in miliseconds
-int ellipseDrawTime = 0; //The time the ship was last drawn
+int ellipseDrawTime = 0; //The time the ellipse was last drawn
 int currentTime; //The current time of the program;
 
 int ellipseX, ellipseY, ellipseWidth, ellipseHeight;  //Position and size of ellipse
@@ -98,7 +98,8 @@ void draw() {
 }
 
 ```
-
+# Video Explanation
+If you prefer to watch a video please check out a recording from class: https://drive.google.com/file/d/1ndP_C3KJv9QovMOzc1hiIXyeg-6Ko_Ub/view
 
 # Homework
 1. Try implementing a `millis()` based delay into one of your other programs.

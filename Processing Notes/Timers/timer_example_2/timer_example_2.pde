@@ -43,4 +43,9 @@ void draw() {
 
   //Draw the ellipse
   ellipse(ellipseX, ellipseY, ellipseWidth, ellipseHeight);
+  
+  //Show what is happening to the variables in the background
+  //textSize(32);
+  //text("Current Time: "+currentTime, 20, 50); 
+  //text("ellipseDrawTime: "+ellipseDrawTime, 20, 100);
 }

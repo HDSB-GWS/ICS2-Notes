@@ -36,4 +36,8 @@ void draw() {
     //Set new time to check for
     ellipseDrawTime = currentTime + ellipseDrawDelay;
   }
+
+  //textSize(32);
+  //text("Current Time: "+currentTime, 20, 50); 
+  //text("ellipseDrawTime: "+ellipseDrawTime, 20, 100);
 }
