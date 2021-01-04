@@ -17,7 +17,7 @@ void draw() {
 }
 ```
 
-#Using the millis() command
+# Using the millis() command
 Using the `millis()` command and some variables to store delay values you can implement a delay that is **non-blocking**.
 ```java
 int ellipseDrawDelay = 1000; //Draw time delay in miliseconds
