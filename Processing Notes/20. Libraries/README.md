@@ -157,11 +157,14 @@ By now you're probably pretty accustomed to looking stuff up in [the Processing 
 
 There are a ton of libraries out there: libraries for computer vision, image processing, artificial intelligence, physics simulations, robotics, you name it. Using libraries really opens up the possibilities of what you can do with code, so don't be afraid to get creative!
 
-# Homework
+# Useful Libraries
+- [Handy](https://www.gicentre.net/handy) - Make your sketches look hand drawn.
+- [Minim](http://code.compartmental.net/2007/03/27/minim-an-audio-library-for-processing/) -  to add sound to one of your sketches.
+- [Twitter4J](http://twitter4j.org/en/) - The Twitter4 library is a Java library that lets you interact with Twitter through your code.
+- [Interfascia](https://github.com/brendanberg/interfascia) - Easy to use GUI Library
 
+# Homework
 - Use the Handy library to make one of your previous sketches look hand-drawn.
-- Use [the Minim library](http://code.compartmental.net/2007/03/27/minim-an-audio-library-for-processing/) to add sound to one of your sketches.
-- The [Twitter4J](http://twitter4j.org/en/) library is a Java library that lets you interact with Twitter through your code. Make a [Twitterbot](https://en.wikipedia.org/wiki/Twitterbot)!
 
 # Credits
 Thanks to Kevin Workman of [Happy Coding](https://happycoding.io/tutorials/processing/) for the original source material for this note.
