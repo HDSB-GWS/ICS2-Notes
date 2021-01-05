@@ -128,7 +128,6 @@ void draw() {
 }
 ```
 
-{% include codepen-new.html slug-hash="OJyqyOa" height="300" %}
 
 Both of these functions have a `void` return type, which means that they **do something** instead of returning a value. The `setup` function handles telling Processing how big the window should be and setting the background color, and the `draw` function draws the flower.
 
@@ -215,7 +214,6 @@ void drawFlower(float flowerX, float flowerY, float petalSize) {
 }
 ```
 
-{% include codepen-new.html slug-hash="xxwBbNM" height="300" %}
 
 This code calls the `drawFlower` function with parameters `150, 150, 100` which draws a flower with an X coordinate of `150`, a Y coordinate of `150`, and a petal size of `100`. Try changing the parameters to see what happens!
 
@@ -232,7 +230,6 @@ void draw() {
 
 ![four flowers](images/creating-functions-4.png)
 
-{% include codepen-new.html slug-hash="eYpXNpL" height="300" %}
 
 The payoff here is that you can treat the `drawFlower` function as a single step, even though it's really doing a bunch of stuff when you call it. You don't have to worry about *how* the flower is drawn, exactly like you didn't have to worry about *how* the `ellipse` function works behind the scenes.
 
@@ -254,7 +251,6 @@ void draw() {
 }
 ```
 
-{% include codepen-new.html slug-hash="jObQbBM" height="300" %}
 
 Now the code draws a new random flower every time the `draw` function runs (60 times per second), which means random flowers fill up the window.
 

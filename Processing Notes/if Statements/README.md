@@ -133,8 +133,6 @@ If `isGradeA` is `false` (if `score` is less than `90`), then the program doesn'
 
 Since `isGradeA` is now `false`, the body of the `if` statement is **not** executed, and it skips over all of the code inside the body.
 
-{% include codepen-new.html slug-hash="pEWPJb" height="100" %}
-
 ## Boolean Expressions
 
 So far, all of the examples have separated the inequality and the `if` statement into two steps: the code first created a `boolean` variable from an inequality, and then it used that variable in an `if` statement. But you can combine them into a single step:
@@ -264,7 +262,6 @@ This code uses a series of `if`, `else if` and `else` statements to run this log
 
 Try changing the `score` variable to see the different messages.
 
-{% include codepen-new.html slug-hash="dpVWoq" height="200" %}
 
 ## Avoiding Unnecessary Checks
 
