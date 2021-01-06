@@ -2,7 +2,7 @@
 
 See the Game States lesson video and example below.  Then do the following two homework questions:
 
-<iframe src="https://drive.google.com/file/d/1xGH9cABGILzd5uG-IUGTJgpJGDOp2F-D/preview" width="640" height="480"></iframe>
+Video Explanation: https://drive.google.com/file/d/1xGH9cABGILzd5uG-IUGTJgpJGDOp2F-D/preview
 
 ```java
 
