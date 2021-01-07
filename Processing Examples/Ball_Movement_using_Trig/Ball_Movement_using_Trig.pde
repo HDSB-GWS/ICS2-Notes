@@ -1,5 +1,5 @@
 float ballX, ballY, ballXSpeed, ballYSpeed, ballAngle;
-
+//based on https://www.khanacademy.org/science/high-school-physics/two-dimensional-motion-2/analyzing-vectors-using-trigonometry/a/2d-kinematics-vectors-analytical-ap1
 
 void setup() {
   size(200,200);
