@@ -8,10 +8,11 @@ void setup() {
 
 void draw() {
   background(0);
-  currentTime = millis();
-  //gameStartTime = currentTime;
+  //Adjust for the later start time by subtracting the gameStartTime
+  currentTime = millis() - gameStartTime;
+  
   textSize(32);
-  text((currentTime - gameStartTime)/1000,50,50);
+  text(currentTime/1000,50,50);
 }
 
 void mouseClicked() {
