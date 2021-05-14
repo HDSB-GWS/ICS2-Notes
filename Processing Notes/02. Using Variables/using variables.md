@@ -201,7 +201,7 @@ Now whenever you want to change the size of the window, you only have to change 
 
 - Remember that character you drew in the previous homework? Use the `width` and `height` variables so that it works with any sized window. It might be helpful to draw your figure out on a piece of paper first, that way you can visualize your figure as percentages of width and height.
 
-- Create a program that displays a different color depending on the `width` and `height` variables.
+- **Challenge:** Create a program that displays a different color depending on the `width` and `height` variables.
 
 # Credits
 
