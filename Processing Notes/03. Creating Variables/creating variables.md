@@ -239,6 +239,9 @@ float flowerY = height / 2;
 
 Remember: you can use a variable anywhere you can use a value, including when creating another variable!
 
+# Using a percentage value to Resize
+note to be added
+
 # Random
 
 Now that you know how to create variables, I can introduce you to one of my favorite functions: the `random` function!
