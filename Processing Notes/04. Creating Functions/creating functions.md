@@ -257,6 +257,7 @@ You can also use the `setup` and `draw` functions to make programs that are inte
 
 ## Homework
 
+- Try to turn the drawing you made for the previous lesson into a function.
 - Create a `drawHouse` function that draws a house. Take in parameters for the house location, size, color, etc.
 - Create a `drawBlock` function that draws 4 houses. Take in parameters for the block location, size, color, etc. Don't write code that draws 4 houses! Instead, call the `drawHouse` function 4 different times with different parameters.
 - Create a `drawNeighborhood` function that draws 9 blocks. Take in parameters for the neighborhood location, size, color, etc. Call the `drawBlock` function to draw the blocks.
