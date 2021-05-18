@@ -1,6 +1,6 @@
 Now you now know how to [call functions](/tutorials/processing/calling-functions), [use variables](/tutorials/processing/using-variables), and [create your own variables](/tutorials/processing/creating-variables).
 
-This tutorial shows you how to create your own functions.
+This tutorial shows you how to create your own functions.   You can find a video explanation of this note [here](https://drive.google.com/file/d/19LT_XiVXGFxeG1v8YxnpW8R6w_4euuKl/view?usp=sharing).
 
 Creating your own functions allows you to organize your code into smaller chunks and treat complicated tasks as a single step.
 
