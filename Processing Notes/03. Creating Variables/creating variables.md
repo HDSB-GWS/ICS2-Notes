@@ -1,4 +1,4 @@
-Now you know how to [use variables](using-variables) like `width` and `height`. Next you'll learn how to create your own variables!
+Now you know how to [use variables](using-variables) like `width` and `height`. Next you'll learn how to create your own variables!  You can find a video explanation of this code [here](https://drive.google.com/file/d/1JdA2fpPF76gbyOCYTHkmtTfrWnLUQxus/view?usp=sharing).
 
 Remember that variables are **names** that hold **values**. You can use a variable anywhere you can use a value, by writing its name. For example:
 
@@ -240,7 +240,9 @@ float flowerY = height / 2;
 Remember: you can use a variable anywhere you can use a value, including when creating another variable!
 
 # Using a percentage value to Resize
-note to be added
+note to be added, until then here is a video note: https://drive.google.com/file/d/1c1rVFe4_YHNsHaY4qQfME1cNug9Gnow3/view?usp=sharing
+
+
 
 # Random
 
