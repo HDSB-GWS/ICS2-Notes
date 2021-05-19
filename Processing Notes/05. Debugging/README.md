@@ -1,6 +1,6 @@
 # Debugging
 
-You've now learned about the [fundamentals of coding](/tutorials/processing/what-is-programming) in Processing, and now you're writing your own code.  That's great!
+You've now learned about the [fundamentals of coding](/tutorials/processing/what-is-programming) in Processing, and now you're writing your own code.  That's great!  Video lesson [here](https://drive.google.com/file/d/1y14AfEoHoHID45S3_HkRNweIv_-Js09x/view?usp=sharing)
 
 No matter where you are in your coding journey, whether you're just starting out or if you've been coding for years, you're going to find yourself in situations where your code is behaving differently from what you expected. That's totally normal! This happens to every single programmer, every single time they write code.
 
