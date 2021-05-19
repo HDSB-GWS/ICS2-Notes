@@ -292,8 +292,8 @@ That's why the code can check whether the grade is a B by only checking whether 
 # Homework
 
 - Expand the `boolean` example to work for more animals. Write a `showAnimalType` function that takes a set of `boolean` parameters (as many as you want!) and shows a message that explains whether the animal is a mammal, bird, reptile, amphibian, or fish. How would you represent a bat (which can fly but isn't a bird) or a penguin (which can't fly but is a bird)? If you want an advanced challenge, do a google search for "animal identification key" for some handy guides.
-- Write a greeting program that shows a different message depending on what time of day it is (morning, afternoon, evening, or night).
-- Create a program that uses `boolean` logic to determine the outcome of a flowchart like [this one](https://xkcd.com/210/). If you want an advanced challenge, try [this one](https://xkcd.com/1688/)!
+- Challenge 1: Write a greeting program that shows a different message depending on what time of day it is (morning, afternoon, evening, or night).
+- Challenge 2: Create a program that uses `boolean` logic to determine the outcome of a flowchart like [this one](https://xkcd.com/210/). If you want an advanced challenge, try [this one](https://xkcd.com/1688/)!
 
 
 # Credits
