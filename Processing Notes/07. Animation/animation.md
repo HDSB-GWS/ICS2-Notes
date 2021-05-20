@@ -378,11 +378,12 @@ There are similar shortcuts for subtraction, multiplication, and division. You d
 
 # Homework
 
+- Make your character move around the screen just like the ball.
 - Add gravity to the bouncing ball program. Hint: `ySpeed` changes `circleY` every frame. Gravity changes `ySpeed` every frame!
-- Add a rectangle to the bouncing ball program. The ball should bounce off the rectangle as well as the edges of the window.
-- Create an animation that shows a full day- start out with a sunrise, show the sun moving across the sky, then sunset, and finally the moon and stars.
-- Remember your drawing program from previous homework? Animate it by either bouncing it around the screen or by changing it over time.
-- Create a [random walk](https://en.wikipedia.org/wiki/Random_walk) animation.
+- Challenge: Add a rectangle to the bouncing ball program. The ball should bounce off the rectangle as well as the edges of the window.
+- Challenge: Create an animation that shows a full day- start out with a sunrise, show the sun moving across the sky, then sunset, and finally the moon and stars.
+- Challenge: Remember your drawing program from previous homework? Animate it by either bouncing it around the screen or by changing it over time.
+- Challenge: Create a [random walk](https://en.wikipedia.org/wiki/Random_walk) animation.
 
 
 
