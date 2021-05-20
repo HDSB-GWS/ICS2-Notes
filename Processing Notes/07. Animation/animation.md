@@ -2,7 +2,7 @@ Now you know how to [call](/tutorials/processing/calling-functions) and [create]
 
 You've seen that the `draw` function is called 60 times per second, and you know how to use operators like `+` and `-` to get new values.
 
-This tutorial combines all of those ideas to create animations.
+This tutorial combines all of those ideas to create animations.  You can watch the video for this lesson [here](https://drive.google.com/file/d/1pRVy6cT4C4VvDaw--SIZ9zdR_Odpw6Oz/view?usp=sharing)
 
 # What is animation?
 
