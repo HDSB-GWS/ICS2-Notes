@@ -1,4 +1,4 @@
-Now you know how to [use variables](using-variables) like `width` and `height`. Next you'll learn how to create your own variables!  You can find a video explanation of this note [here](https://drive.google.com/file/d/1JdA2fpPF76gbyOCYTHkmtTfrWnLUQxus/view?usp=sharing).
+Now you know how to [use variables](../02.%20Using%20Variables/using%20variables.md) like `width` and `height`. Next you'll learn how to create your own variables!  You can find a video explanation of this note [here](https://drive.google.com/file/d/1JdA2fpPF76gbyOCYTHkmtTfrWnLUQxus/view?usp=sharing).
 
 Remember that variables are **names** that hold **values**. You can use a variable anywhere you can use a value, by writing its name. For example:
 
