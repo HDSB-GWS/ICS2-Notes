@@ -1,4 +1,4 @@
-Now you know how to [call](/tutorials/processing/calling-functions) and [create](/tutorials/processing/creating-functions) functions, how to [use](/tutorials/processing/using-variables) and [create](/tutorials/processing/creating-variables) variables, and how to use [`if` statements](/tutorials/processing/if-statements).
+Now you know how to [call](../01.%20Functions/functions.md) and [create](../04.%20Creating%20Functions/creating%20functions.md) functions, how to [use](../02.%20Using%20Variables/using%20variables.md) and [create](../03.%20Creating%20Variables/creating%20variables.md) variables, and how to use [`if` statements](../06.%20if%20Statements).
 
 You've seen that the `draw` function is called 60 times per second, and you know how to use operators like `+` and `-` to get new values.
 

@@ -1,10 +1,10 @@
 # if statements
 
-Now you know how to [call functions](/tutorials/processing/calling-function), [use variables](/tutorials/processing/using-variables), and create your own [variables](/tutorials/processing/creating-variables) and [functions](/tutorials/processing/creating-functions).  You may find the video lesson [here](https://drive.google.com/file/d/1pv2VWWHA67M-qQ2jiT9nRj84Fk7vu0Ud/view?usp=sharing)
+Now you know how to [call functions](../01.%20Functions/functions.md), [use variables](../02.%20Using%20Variables/using%20variables.md), and create your own [variables](../03.%20Creating%20Variables/creating%20variables.md) and [functions](../04.%20Creating%20Functions/creating%20functions.md). 
 
 You've seen that values have different **types**. A type tells the computer what kind of data a value is, or what type of value a variable holds. So far you've mostly worked with the `float` type.
 
-This tutorial introduces the `boolean` type, which can only hold two possible values: `true` or `false`. This tutorial also introduces **if statements**, which allow you to perform different actions depending on the value of a boolean.
+This tutorial introduces the `boolean` type, which can only hold two possible values: `true` or `false`. This tutorial also introduces **if statements**, which allow you to perform different actions depending on the value of a boolean.   You may find the video lesson [here](https://drive.google.com/file/d/1pv2VWWHA67M-qQ2jiT9nRj84Fk7vu0Ud/view?usp=sharing)
 
 # Booleans
 

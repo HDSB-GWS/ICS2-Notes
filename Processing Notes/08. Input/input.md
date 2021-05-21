@@ -1,4 +1,4 @@
-Now you know how to [call functions](/tutorials/processing/calling-functions), [use variables](/tutorials/processing/using-variables), [create functions](/tutorials/processing/calling-functions), and [use  `if` statements](/tutorials/processing/if-statements). You also know how to modify variables over time to create [animations](/tutorials/processing/animation), and you've seen that Processing gives you predefined variables like `width` and `height`.
+Now you know how to [call functions](../01.%20Functions/functions.md), [use variables](../02.%20Using%20Variables/using%20variables.md), [create functions](../04.%20Creating%20Functions/creating%20functions.md), and [use  `if` statements](../06.%20if%20Statements). You also know how to modify variables over time to create [animations](../07.%20Animation), and you've seen that Processing gives you predefined variables like `width` and `height`.  You can see a video for this lesson [here](https://drive.google.com/file/d/1ArKBr9yYVRwA1ue8CcY7BG7cn42fM3gn/view?usp=sharing)
 
 You also know that Processing automatically calls the `setup` function once at the very beginning of the program, and then calls the `draw` function 60 times per second.
 
@@ -215,8 +215,6 @@ void draw(){
 This program passes the `key` variable into the `text()` function to draw the last key typed by the user.
 
 ![typing happy coding](images/input-6.gif)
-
-{% include codepen-new.html slug-hash="GjrmxR" height="300" %}
 
 Or you can use the `key` variable in an `if` statement to detect particular key presses:
 

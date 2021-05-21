@@ -1,4 +1,4 @@
-Now you now know how to [call functions](/tutorials/processing/calling-functions), [use variables](/tutorials/processing/using-variables), and [create your own variables](/tutorials/processing/creating-variables).
+Now you now know how to [call functions](../01.%20Functions/functions.md), [use variables](../02.%20Using%20Variables/using%20variables.md), and [create your own variables](../03.%20Creating%20Variables/creating%20variables.md).
 
 This tutorial shows you how to create your own functions.   You can find a video explanation of this note [here](https://drive.google.com/file/d/19LT_XiVXGFxeG1v8YxnpW8R6w_4euuKl/view?usp=sharing).
 
