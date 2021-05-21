@@ -474,10 +474,10 @@ Notice that it doesn't really make sense to display the value of some of these v
 # Homework
 
 - Create a drawing program. Be creative! Maybe clicking creates a circle, dragging creates a rectangle, and the keyboard changes the color. These are just suggestions, do whatever you want!
-- Create a drawing program for a specific scene. For example, you could create a garden drawing program where clicking creates flowers (randomly sized and colored?), dragging creates grass, the mouse wheel adds butterflies, keyboard changes the background or sky...
-- Create a program where the user controls a ball that bounces around the screen. Add acceleration, gravity, and braking. Instead of a circle, make it a spaceship (like from the game [Asteroids](https://en.wikipedia.org/wiki/Asteroids_(video_game))) where you control the direction and acceleration.
 - Remember that scene you drew from a previous homework? Add user interaction. Let users click to add object, or press keys to change colors.
-- Create a typing game: show a random character on the screen. If the user types it correctly, increase the score and show another character. If the user types the wrong character, the game is over. Bonus: make the game automatically end after 60 seconds!
+- Challenge 1: Create a drawing program for a specific scene. For example, you could create a garden drawing program where clicking creates flowers (randomly sized and colored?), dragging creates grass, the mouse wheel adds butterflies, keyboard changes the background or sky...
+- Challenge 2: Create a program where the user controls a ball that bounces around the screen. Add acceleration, gravity, and braking. Instead of a circle, make it a spaceship (like from the game [Asteroids](https://en.wikipedia.org/wiki/Asteroids_(video_game))) where you control the direction and acceleration.
+- Challenge 3: Create a typing game: show a random character on the screen. If the user types it correctly, increase the score and show another character. If the user types the wrong character, the game is over. Bonus: make the game automatically end after 60 seconds!
 
 
 
