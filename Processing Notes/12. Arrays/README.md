@@ -1,11 +1,9 @@
 # Arrays
 
 ## Video Note
-See the following video note: https://drive.google.com/file/d/1l4OdMyFkrcQ3TBiptXUWVQAwxts0hkQW/view?usp=sharing
-
 Now you know how to [create variables](tbc) and [functions](tbc), and you know how to use [`for` loops](tbc) to repeat a block of code.
 
-So far, the variables you've seen have held a single value. This tutorial introduces **arrays**, which hold multiple values.
+So far, the variables you've seen have held a single value. This tutorial introduces **arrays**, which hold multiple values.  See the following video note: https://drive.google.com/file/d/1l4OdMyFkrcQ3TBiptXUWVQAwxts0hkQW/view?usp=sharing
 
 # Multiple Variables
 
