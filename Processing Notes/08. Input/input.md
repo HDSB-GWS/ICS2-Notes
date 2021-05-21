@@ -1,0 +1,486 @@
+Now you know how to [call functions](/tutorials/processing/calling-functions), [use variables](/tutorials/processing/using-variables), [create functions](/tutorials/processing/calling-functions), and [use  `if` statements](/tutorials/processing/if-statements). You also know how to modify variables over time to create [animations](/tutorials/processing/animation), and you've seen that Processing gives you predefined variables like `width` and `height`.
+
+You also know that Processing automatically calls the `setup` function once at the very beginning of the program, and then calls the `draw` function 60 times per second.
+
+So far your programs have mostly done stuff on their own, without responding to anything that the user does. This tutorial shows you how to get user input (things like mouse position, mouse clicks, and keyboard typing) to make your programs more interactive.
+
+# Mouse Input
+
+## The `mouseX` and `mouseY` Variables
+
+Processing provides `mouseX` and `mouseY` variables that hold the current location of the mouse cursor in the window. Processing automatically updates these variables, so you can use them in the `draw` function to get the position of the mouse.
+
+```java
+void setup() {
+  size(300, 300);
+}
+
+void draw() {
+  background(32);
+  ellipse(mouseX, mouseY, 50, 50);
+}
+```
+
+This program draws a circle wherever the mouse cursor is.
+
+![circle at mouse](images/input-1.gif)
+
+## The `mousePressed` Variable
+
+The `mouseX` and `mouseY` variables point to `int` values that hold the current position of the mouse.
+
+Similarly, the `mousePressed` variable points to a `boolean` value that's `true` when the mouse is pressed, and `false` when it's not. You can use the `mousePressed` variable in an `if` statement to do stuff when the mouse is held down:
+
+```java
+void setup() {
+  size(300, 300);
+}
+
+void draw() {
+  if (mousePressed) {
+    background(0, 255, 0);
+  } else {
+    background(32);
+  }
+}
+```
+
+This program uses an `if` statement to check whether `mousePressed` is `true`. If it is, then it draws a green background. If not, then it draws a gray background.
+
+![gray background that turns green when mouse is pressed](images/input-2.gif)
+
+In other words, the program displays gray unless the mouse is pressed, then it displays green.
+
+You can combine the `mousePressed` variable with the `mouseX` and `mouseY` variables to create a drawing program:
+
+```java
+void setup() {
+  size(300, 300);
+  background(32);
+}
+
+void draw() {
+  if (mousePressed) {
+    ellipse(mouseX, mouseY, 25, 25);
+  }
+}
+```
+
+This program uses an `if` statement to check whether `mousePressed` is `true`. If it is, then it draws an ellipse at `mouseX,mouseY`.
+
+![drawing program](images/input-3.gif)
+
+In other words, the program lets you draw with circles whenever the mouse is pressed.
+
+This works because the code does **not** call the `background` function from the `draw` function, so new circles are drawn on top of old circles.
+
+## Mouse Input Functions
+
+The `mousePressed` variable is useful when you want to do something continuously, as long as the user has the mouse pressed. But what if you want to detect one-time input like a mouse click?
+
+These one-time inputs are called **events**, and Processing provides a bunch of functions that it automatically calls whenever an event happens. By writing code inside these functions, you can run code when these events happen.
+
+There are a bunch of mouse input functions that allow you to react to more specific events:
+
+- `mousePressed()` is called once when the user presses the mouse button. This is the first half of a click.
+- `mouseReleased()` is called once when the user releases the mouse button. This is the second half of a click.
+- `mouseClicked()` is called when the mouse is **clicked**. This is a press **and** a release!
+- `mouseMoved()` is called whenever the mouse moves.
+- `mouseDragged()` is called, you guessed it, whenever the mouse is moved while its button is pressed.
+- `mouseWheel()` is called when you scroll with the mouse wheel.
+- If you need to know which mouse button is pressed, check out the `mouseButton` variable.
+
+Here's an example that defines `mousePressed`, `mouseReleased`, and `mouseDragged` functions to change the background color:
+
+```java
+float r = 32;
+float g = 32;
+float b = 32;
+
+void setup() {
+  size(300, 300);
+}
+
+void draw() {
+  background(r, g, b);
+}
+
+void mousePressed() {
+  r = 0;
+  g = 255;
+  b = 0;
+}
+
+void mouseReleased() {
+  r = 255;
+  g = 255;
+  b = 0;
+}
+
+void mouseDragged() {
+  r = 0;
+  g = 0;
+  b = 255;
+}
+```
+
+The program starts out gray. When the user presses their mouse, it turns green, and then turns yellow when the user releases their mouse. The program turns blue when the user drags their mouse.
+
+![mouse event program](images/input-4.gif)
+
+## Combining Input Variables and Event Functions
+
+Inside an event function, you can use the same variables and functions as you can in the `draw` function. Here's an example that uses the `mouseX` and `mouseY` variables inside the `mouseClicked` function:
+
+```java
+void setup() {
+  size(300, 300);
+  background(32);
+}
+
+void draw() {
+  if (mousePressed) {
+    fill(0, 255, 255);
+    ellipse(mouseX, mouseY, 25, 25);
+  }
+}
+
+void mouseClicked() {
+  fill(0, 255, 0);
+  ellipse(mouseX, mouseY, 50, 50);
+}
+```
+
+Inside the `draw` function (which is called 60 times per second), this code checks the `mousePressed` variable and draws a small cyan circle under the mouse if it is. Inside the `mouseClicked` function (which is called once when the user clicks their mouse), the code draws a large green circle under the mouse. In other words, the user can hold down their mouse to draw a small cyan circle, or they can click their mouse to draw a large green circle
+
+![click to make circles](images/input-5.gif)
+
+# Keyboard Input
+
+## The `keyPressed` Variable
+
+Similar to how the `mousePressed` variable is `true` whenever the user is pressing a mouse button, the `keyPressed` variable is `true` whenever the user is pressing a key on the keyboard.
+
+You can use the `keyPressed` variable in an `if` statement to execute code whenever the user is pressing a key:
+
+```java
+void setup() {
+  size(300, 300);
+}
+
+void draw(){
+  if(keyPressed){
+    background(0, 255, 0);
+  }
+  else{
+    background(100);
+  }
+}
+```
+
+This program uses an `if` statement to check whether the `keyPressed` variable is `true`. If so, then it draws a green background, otherwise, it draws a gray background.
+
+![green background when key is pressed](images/input-14.gif)
+
+In other words, the program shows green whenever the user presses a key.
+
+## The `key` Variable
+
+The `keyPressed` variable by itself is useful if you want to know whether [any key](https://en.wikipedia.org/wiki/Any_key) is pressed. Many programs will also want to know **which** key is being pressed. For that, you can use the `key` variable.
+
+The `key` variable is a `char` type. If you haven't seen the `char` type yet, it's similar to the `String` type, except it only holds a single character.
+
+You can use `char` values by typing a single character inside single quotation marks `''`, like this:
+
+```java
+char myCharVariable = 'A';
+```
+
+The `key` variable points to a `char` value that holds the last key that was pressed.
+
+You can use it directly:
+
+```java
+void setup() {
+  size(300, 300);
+}
+
+void draw(){
+  background(32);
+  textSize(144);
+  text(key, 110, 180);
+}
+```
+
+This program passes the `key` variable into the `text()` function to draw the last key typed by the user.
+
+![typing happy coding](images/input-6.gif)
+
+{% include codepen-new.html slug-hash="GjrmxR" height="300" %}
+
+Or you can use the `key` variable in an `if` statement to detect particular key presses:
+
+```java
+void setup() {
+  size(300, 300);
+}
+
+void draw() {
+  if (keyPressed) {
+
+    if (key == 'r') {
+      background(255, 0, 0);
+    } 
+    else if (key == 'g') {
+      background(0, 255, 0);
+    } 
+    else if (key == 'b') {
+      background(0, 0, 255);
+    }
+  } 
+  else {
+    background(32);
+  }
+}
+```
+
+This program uses an `if` statement to check whether `keyPressed` is `true`. If so, then it uses another `if / else-if` block to check whether they key is `r`, `g`, or `b`. Depending on which key is pressed, it draws a different color background. If `keyPressed` is false, then it doesn't bother checking the `key` variables and draws a gray background.
+
+![key press changing background](images/input-7.gif)
+
+Notice that the code only checks the `key` variable if it knows that `keyPressed` is true. This is because `key` always holds the **most recent** key pressed by the user, even if the user stopped pressing it.
+
+**Challenge:** Modify this code so the color change remains, even when the user releases the key.
+
+## The `keyCode` Variable
+
+They `key` variable is useful if you want to check for letter or number keys. But what if you want to check for the `shift` or `ctrl` key, or the arrow keys? They don't have `char` representations, so the `key` variable won't work with them.
+
+Instead, you can use the `keyCode` variable. You can check the `keyCode` variable against predefined variables like `UP`, `DOWN`, `LEFT`, `RIGHT`, `SHIFT`, `CONTROL`, and `ALT` (There are more, check the [reference](https://processing.org/reference/)!) to do stuff when the user presses a specific key.
+
+```java
+float circleX = 150;
+float circleY = 150;
+
+void setup() {
+  size(300, 300);
+}
+
+void draw() {
+
+  background(50);
+
+  if (keyPressed) {
+    if (keyCode == UP) {
+      circleY--;
+    } 
+    else if (keyCode == DOWN) {
+      circleY++;
+    } 
+    else if(keyCode == LEFT){
+      circleX--;
+    }
+    else if(keyCode == RIGHT){
+     circleX++; 
+    }
+  } 
+
+  ellipse(circleX, circleY, 50, 50);
+}
+```
+
+This program checks whether one of the arrow keys is being pressed, and moves a circle based on that. This allows the user to move the circle around the screen.
+
+![arrow keys controlling circle](images/input-9.gif)
+
+**Challenge:** Modify this code to make the circle go faster!
+
+## Keyboard Input Functions
+
+The `keyPressed`, `key`, and `keyCode` variables are useful if you want to do something continuously, as long as the user presses a key. But what if you want to respond to one-time keyboard events?
+
+Similar to how Processing automatically calls the `mousePressed()`, `mouseReleased()`, and `mouseClicked()` functions based on mouse events, Processing also automatically calls the `keyPressed()`, `keyReleased()`, and `keyTyped()` functions based on keyboard events.
+
+You can define these functions to run code based on these keyboard events.
+
+```java
+String message = "";
+
+void setup() {
+  size(300, 300);
+  textSize(36);
+}
+
+void draw() {
+  background(50);
+  text(message, 25, 150);
+}
+
+void keyTyped() {
+  message += key;
+}
+```
+
+This program maintains a `message` variable. In the `keyTyped` function, it *appends* the typed key to the `message` variable. The `draw` function draws the message to the screen.
+
+![typing a message](images/input-10.gif)
+
+## Handling Multiple Keys
+
+The `key` and `keyCode` variables only hold the most recent key pressed. This limits you to only knowing about one key at a time. But what if the user is holding down multiple keys at the same time?
+
+One approach to track multiple keys involves four steps:
+
+- Declare sketch-level `boolean` variables, one for each key you want to track.
+- In the `keyPressed` function, detect which key was pressed and set the corresponding `boolean` variable to `true`.
+- In the `keyReleased` function, detect which key was released and set the corresponding `boolean` variable to `false`.
+- In the `draw` function, use `if` statements to do stuff based on those `boolean` variables.
+
+```java
+
+boolean upPressed = false;
+boolean downPressed = false;
+boolean leftPressed = false;
+boolean rightPressed = false;
+
+float circleX = 150;
+float circleY = 150;
+
+void setup() {
+  size(300, 300);
+}
+
+void draw() {
+  background(50);  
+
+  if (upPressed) {
+    circleY--;
+  }
+  if (downPressed) {
+    circleY++;
+  }
+  if (leftPressed) {
+    circleX--;
+  }
+  if (rightPressed) {
+    circleX++;
+  }
+
+  ellipse(circleX, circleY, 50, 50);
+}
+
+void keyPressed() {
+  if (keyCode == UP) {
+    upPressed = true;
+  }
+  else if (keyCode == DOWN) {
+    downPressed = true;
+  }
+  else if (keyCode == LEFT) {
+    leftPressed = true;
+  }
+  else if (keyCode == RIGHT) {
+    rightPressed = true;
+  }
+}
+
+void keyReleased() {
+  if (keyCode == UP) {
+    upPressed = false;
+  }
+  else if (keyCode == DOWN) {
+    downPressed = false;
+  }
+  else if (keyCode == LEFT) {
+    leftPressed = false;
+  }
+  else if (keyCode == RIGHT) {
+    rightPressed = false;
+  }
+}
+```
+
+This code uses four `boolean` values to hold whether any of the arrow keys are pressed. In the `keyPressed` function, the corresponding variable is set to `true`, and in the `keyReleased` function, the corresponding variable is set to `false`. Then the `draw` function uses those variables to move the circle depending on which arrow keys are currently pressed.
+
+![circle controlled by multiple keys](images/input-11.gif)
+
+If this seems confusing, think about exactly what happens when you press two keys at the same time: it might seem like you're pressing them at the same time, but you're actually pressing one a split second before the other. Same with releasing them.
+
+# Cheat Sheet
+
+This program shows a bunch of the variables and event functions you can use to get user input:
+
+```java
+void setup(){
+  size(300, 300);
+}
+
+void draw() {
+  background(50);  
+  
+  textSize(18);
+  fill(0);
+  
+  text("mousePressed: " + mousePressed, 20, 20);
+  text("mouseButton: " + mouseButton, 20, 40);
+  text("mouseX: " + mouseX, 20, 60);
+  text("mouseY: " + mouseY, 20, 80);
+  text("pmouseX: " + pmouseX, 20, 100);
+  text("pmouseY: " + pmouseY, 20, 120);
+  text("keyPressed: " + keyPressed, 20, 140);
+  text("key: " + key, 20, 160);
+  text("keyCode: " + keyCode, 20, 180);
+}
+
+void keyPressed() {
+  println("keyPressed: " + key);
+}
+
+void keyReleased() {
+  println("keyReleased: " + key);
+}
+
+void keyTyped(){
+  println("keyTyped: " + key);
+}
+
+void mousePressed(){
+  println("mousePressed");
+}
+
+void mouseReleased(){
+  println("mouseReleased");
+}
+
+void mouseClicked(){
+  println("mouseClicked");
+}
+
+void mouseMoved(){
+  println("mouseMoved");
+}
+
+void mouseDragged(){
+  println("mouseDragged");
+}
+
+void mouseWheel(){
+  println("mouseWheel");
+}
+```
+
+Notice that it doesn't really make sense to display the value of some of these variables (like `keyCode` or `mouseButton`). It only makes sense to compare them to other preexisting variables (like `SHIFT` or `LEFT`).
+
+# Homework
+
+- Create a drawing program. Be creative! Maybe clicking creates a circle, dragging creates a rectangle, and the keyboard changes the color. These are just suggestions, do whatever you want!
+- Create a drawing program for a specific scene. For example, you could create a garden drawing program where clicking creates flowers (randomly sized and colored?), dragging creates grass, the mouse wheel adds butterflies, keyboard changes the background or sky...
+- Create a program where the user controls a ball that bounces around the screen. Add acceleration, gravity, and braking. Instead of a circle, make it a spaceship (like from the game [Asteroids](https://en.wikipedia.org/wiki/Asteroids_(video_game))) where you control the direction and acceleration.
+- Remember that scene you drew from a previous homework? Add user interaction. Let users click to add object, or press keys to change colors.
+- Create a typing game: show a random character on the screen. If the user types it correctly, increase the score and show another character. If the user types the wrong character, the game is over. Bonus: make the game automatically end after 60 seconds!
+
+
+
+# Credits
+
+Thanks to Kevin Workman of [Happy Coding](https://happycoding.io/tutorials/processing/input) for the original source material for this note.
