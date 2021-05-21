@@ -272,16 +272,16 @@ void draw() {
 
   if (keyPressed) {
     if (keyCode == UP) {
-      circleY--;
+      circleY -= 1;
     } 
     else if (keyCode == DOWN) {
-      circleY++;
+      circleY += 1;
     } 
     else if(keyCode == LEFT){
-      circleX--;
+      circleX -= 1;
     }
     else if(keyCode == RIGHT){
-     circleX++; 
+     circleX += 1; 
     }
   } 
 
@@ -354,16 +354,16 @@ void draw() {
   background(50);  
 
   if (upPressed) {
-    circleY--;
+    circleY -= 1;
   }
   if (downPressed) {
-    circleY++;
+    circleY += 1;
   }
   if (leftPressed) {
-    circleX--;
+    circleX -= 1;
   }
   if (rightPressed) {
-    circleX++;
+    circleX += 1;
   }
 
   ellipse(circleX, circleY, 50, 50);
