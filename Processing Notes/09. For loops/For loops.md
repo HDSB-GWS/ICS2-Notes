@@ -1,6 +1,6 @@
 Now you know how to write code using [functions](../04.%20Creating%20Functions/creating%20functions.md), [variables](../03.%20Creating%20Variables/creating%20variables.md), and [if statements](../06.%20if%20Statements). So far your code has worked by executing each line one after the other: if you want to draw three circles, you'd have to write three separate calls to the `ellipse` function.
 
-This tutorial introduces `for` loops, which allow you to repeat work without repeating code.
+This tutorial introduces `for` loops, which allow you to repeat work without repeating code.   You can find a video for this note [here](https://drive.google.com/file/d/1ZdJjXDFqPPOh4ixLyHM5OVQgFEnJ0QQW/view)
 
 # Patterns
 
@@ -262,7 +262,7 @@ void draw() {
   background(100);
   stroke(255);
   
-  for (int i = 1; i <= 9; i++) {
+  for (int i = 1; i <= 9; i+=1) {
     int lineX = i * 30;
     line(lineX, 0, lineX, height);
   }
@@ -284,7 +284,7 @@ void draw() {
   background(100);
   stroke(255);
   
-  for (int i = 1; i <= 9; i++) {
+  for (int i = 1; i <= 9; i+=1) {
     strokeWeight(i * 2);
 
     int lineX = i * 30;
