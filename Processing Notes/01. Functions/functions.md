@@ -1,6 +1,6 @@
 By now you've used the Processing editor to write your first line of code. Congratulations! Now let's take a closer look at exactly what's happening.
 
-In Processing (and most other languages), one of the tools you'll use most often is the ability to **call a function**.
+In Processing (and most other languages), one of the tools you'll use most often is the ability to **call a function**.  See the video note [here](https://drive.google.com/file/d/1Stt1eLeqTUPKRf3_xkS3fOyPfLMvnGdY/view)
 
 # What's a function?
 
