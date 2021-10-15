@@ -119,16 +119,16 @@ size(400, 400);
 background(0, 200, 0);
 
 fill(255, 128, 0);
-ellipse(400/4, 400/4, 400/2, 400/2);
-ellipse(400*.75, 400/4, 400/2, 400/2);
-ellipse(400/4, 400*.75, 400/2, 400/2);
-ellipse(400*.75, 400*.75, 400/2, 400/2);
+ellipse(400*0.25, 400*0.25, 400*0.5, 400*0.5);
+ellipse(400*0.75, 400*0.25, 400*0.5, 400*0.5);
+ellipse(400*0.25, 400*0.75, 400*0.5, 400*0.5);
+ellipse(400*0.75, 400*0.75, 400*0.5, 400*0.5);
 
 fill(255, 0, 0);
-ellipse(400/2, 400/2, 400/2, 400/2);
+ellipse(400*0.5, 400*0.5, 400*0.5, 400*0.5);
 ```
 
-This code uses the width and height of the window (in this case, `400`) along with operators to calculate the locations and sizes of the circles.
+This code uses the width and height of the window (in this case, `400`) along with operators to calculate the locations and sizes of the circles.  Each of the multipliers is the percentage size compared to the window size.  
 
 Now that you're using operators, if you want to change the size of the window, you could change everywhere you see a `400` to whatever size you want. So you could change the size to `150x150`:
 
@@ -138,13 +138,13 @@ size(150, 150);
 background(0, 200, 0);
 
 fill(255, 128, 0);
-ellipse(150/4, 150/4, 150/2, 150/2);
-ellipse(150*.75, 150/4, 150/2, 150/2);
-ellipse(150/4, 150*.75, 150/2, 150/2);
-ellipse(150*.75, 150*.75, 150/2, 150/2);
+ellipse(150*0.25, 150*0.25, 150*0.5, 150*0.5);
+ellipse(150*0.75, 150*0.25, 150*0.5, 150*0.5);
+ellipse(150*0.25, 150*0.75, 150*0.5, 150*0.5);
+ellipse(150*0.75, 150*0.75, 150*0.5, 150*0.5);
 
 fill(255, 0, 0);
-ellipse(150/2, 150/2, 150/2, 150/2);
+ellipse(150*0.5, 150*0.5, 150*0.5, 150*0.5);
 ```
 
 ![150x150 flower](images/using-variables-5.png)
@@ -179,18 +179,21 @@ Now if you want to change the size of the window, you only have to change the pa
 This becomes even more useful as your programs grow in size. Here's the flower sketch, now using the `width` and `height` variables:
 
 ```java
-size(300, 300);
+size(400, 400);
 
 background(0, 200, 0);
 
 fill(255, 128, 0);
-ellipse(width/4, height/4, width/2, height/2);
-ellipse(width*.75, height/4, width/2, height/2);
-ellipse(width/4, height*.75, width/2, height/2);
-ellipse(width*.75, height*.75, width/2, height/2);
+//ellipse(100,            100,          200,            200);
+//     100/400= 0.25  100/400= 0.25   200/400=0.5    200/400=0.5
+ellipse(width*0.25,    width*0.25,     width*0.5,      width*0.5);
+
+ellipse(width*.75, width*0.25, width*0.5, width*0.5);
+ellipse(width*0.25, width*.75, width*0.5, width*0.5);
+ellipse(width*.75, width*.75, width*0.5, width*0.5);
 
 fill(255, 0, 0);
-ellipse(width/2, height/2, width/2, height/2);
+ellipse(width*0.5, width*0.5, width*0.5, width*0.5);
 ```
 
 **Side note:** When a line of code gets too long, you can split it up into multiple lines to make it easier to read. The computer ignores whitespace when it runs your code.
