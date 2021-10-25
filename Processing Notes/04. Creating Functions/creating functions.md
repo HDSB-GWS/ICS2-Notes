@@ -53,26 +53,27 @@ Let's start out with code that doesn't use any custom functions. By now you're p
 ```java
 size(300, 300);
 
-background(0, 200, 0);
-
+float flowerScale = 2;
 float flowerX = 150;
 float flowerY = 150;
-float petalSize = 100;
-float petalDistance = petalSize / 2;
+float petalSize = 50*flowerScale;
+
+
+background(0, 200, 0);
 
 fill(255, 128, 0);
 
 // upper-left petal
-ellipse(flowerX - petalDistance, flowerY - petalDistance, petalSize, petalSize);
+ellipse(flowerX - 25*flowerScale, flowerY - 25*flowerScale, petalSize, petalSize);
 
 // upper-right petal
-ellipse(flowerX + petalDistance, flowerY - petalDistance, petalSize, petalSize);
+ellipse(flowerX + 25*flowerScale, flowerY - 25*flowerScale, petalSize, petalSize);
 
 // lower-left petal
-ellipse(flowerX - petalDistance, flowerY + petalDistance, petalSize, petalSize);
+ellipse(flowerX - 25*flowerScale, flowerY + 25*flowerScale, petalSize, petalSize);
 
 // lower-right petal
-ellipse(flowerX + petalDistance, flowerY + petalDistance, petalSize, petalSize);
+ellipse(flowerX + 25*flowerScale, flowerY + 25*flowerScale, petalSize, petalSize);
 
 // center petal
 fill(255, 0, 0);
@@ -92,25 +93,25 @@ void setup() {
 }
 
 void draw() {
+  float flowerScale = 2;
   float flowerX = 150;
   float flowerY = 150;
-  float petalSize = 100;
-  float petalDistance = petalSize / 2;
-
+  float petalSize = 50*flowerScale;
+  
   fill(255, 128, 0);
-
+  
   // upper-left petal
-  ellipse(flowerX - petalDistance, flowerY - petalDistance, petalSize, petalSize);
-
+  ellipse(flowerX - 25*flowerScale, flowerY - 25*flowerScale, petalSize, petalSize);
+  
   // upper-right petal
-  ellipse(flowerX + petalDistance, flowerY - petalDistance, petalSize, petalSize);
-
+  ellipse(flowerX + 25*flowerScale, flowerY - 25*flowerScale, petalSize, petalSize);
+  
   // lower-left petal
-  ellipse(flowerX - petalDistance, flowerY + petalDistance, petalSize, petalSize);
-
+  ellipse(flowerX - 25*flowerScale, flowerY + 25*flowerScale, petalSize, petalSize);
+  
   // lower-right petal
-  ellipse(flowerX + petalDistance, flowerY + petalDistance, petalSize, petalSize);
-
+  ellipse(flowerX + 25*flowerScale, flowerY + 25*flowerScale, petalSize, petalSize);
+  
   // center petal
   fill(255, 0, 0);
   ellipse(flowerX, flowerY, petalSize, petalSize);
@@ -134,23 +135,23 @@ To help with this, you could move all of the code related to drawing a flower in
 To create a function, you write its return type (often `void`), then its name, then its parameters inside `()` parentheses, and finally, inside `{ }` curly brackets, write the code that should run when you call that function.
 
 ```java
-void drawFlower(float flowerX, float flowerY, float petalSize) {
-  float petalDistance = petalSize / 2;
-
+void drawFlower(float flowerX, float flowerY, float flowerScale) {
+  float petalSize = 50*flowerScale;
+  
   fill(255, 128, 0);
-
+  
   // upper-left petal
-  ellipse(flowerX - petalDistance, flowerY - petalDistance, petalSize, petalSize);
-
+  ellipse(flowerX - 25*flowerScale, flowerY - 25*flowerScale, petalSize, petalSize);
+  
   // upper-right petal
-  ellipse(flowerX + petalDistance, flowerY - petalDistance, petalSize, petalSize);
-
+  ellipse(flowerX + 25*flowerScale, flowerY - 25*flowerScale, petalSize, petalSize);
+  
   // lower-left petal
-  ellipse(flowerX - petalDistance, flowerY + petalDistance, petalSize, petalSize);
-
+  ellipse(flowerX - 25*flowerScale, flowerY + 25*flowerScale, petalSize, petalSize);
+  
   // lower-right petal
-  ellipse(flowerX + petalDistance, flowerY + petalDistance, petalSize, petalSize);
-
+  ellipse(flowerX + 25*flowerScale, flowerY + 25*flowerScale, petalSize, petalSize);
+  
   // center petal
   fill(255, 0, 0);
   ellipse(flowerX, flowerY, petalSize, petalSize);
@@ -165,30 +166,30 @@ void setup() {
   background(0, 200, 0);
 }
 
-void draw() {
-  drawFlower(150, 150, 100);
-}
-
-void drawFlower(float flowerX, float flowerY, float petalSize) {
-  float petalDistance = petalSize / 2;
-
+void drawFlower(float flowerX, float flowerY, float flowerScale) {
+  float petalSize = 50*flowerScale;
+  
   fill(255, 128, 0);
-
+  
   // upper-left petal
-  ellipse(flowerX - petalDistance, flowerY - petalDistance, petalSize, petalSize);
-
+  ellipse(flowerX - 25*flowerScale, flowerY - 25*flowerScale, petalSize, petalSize);
+  
   // upper-right petal
-  ellipse(flowerX + petalDistance, flowerY - petalDistance, petalSize, petalSize);
-
+  ellipse(flowerX + 25*flowerScale, flowerY - 25*flowerScale, petalSize, petalSize);
+  
   // lower-left petal
-  ellipse(flowerX - petalDistance, flowerY + petalDistance, petalSize, petalSize);
-
+  ellipse(flowerX - 25*flowerScale, flowerY + 25*flowerScale, petalSize, petalSize);
+  
   // lower-right petal
-  ellipse(flowerX + petalDistance, flowerY + petalDistance, petalSize, petalSize);
-
+  ellipse(flowerX + 25*flowerScale, flowerY + 25*flowerScale, petalSize, petalSize);
+  
   // center petal
   fill(255, 0, 0);
   ellipse(flowerX, flowerY, petalSize, petalSize);
+}
+
+void draw() {
+  drawFlower(150,150,1.5);
 }
 ```
 
@@ -198,10 +199,10 @@ Now that you have a `drawFlower` function, you can call it as many times as you 
 
 ```java
 void draw() {
-  drawFlower(80, 90, 75);
-  drawFlower(225, 80, 45);
-  drawFlower(75, 225, 55);
-  drawFlower(220, 220, 65);
+  drawFlower(80, 90, 1.5);
+  drawFlower(225, 80, 1);
+  drawFlower(75, 225, 1.1);
+  drawFlower(220, 220, 1.5);
 }
 ```
 
