@@ -265,7 +265,7 @@ fill(255, 0, 0);
 ellipse(flowerX, flowerY, petalSize, petalSize);
 ```
 
-note to be added, until then here is a video note: https://drive.google.com/file/d/1c1rVFe4_YHNsHaY4qQfME1cNug9Gnow3/view?usp=sharing
+//TODO: Add note to support this example
 
 
 
@@ -287,30 +287,30 @@ Now the `flowerX` variable will hold a random value between `0` and `width`, and
 ```java
 size(300, 300);
 
-float flowerX = random(0, width);
-float flowerY = random(0, height);
-float petalSize = random(25, 150);
-float petalDistance = petalSize / 2;
+float flowerScale = random(0.1,4);
+float flowerX = random(0, width);;
+float flowerY = random(0, height);;
+float petalSize = 50*flowerScale;
+
 
 background(0, 200, 0);
 
 fill(255, 128, 0);
 
 // upper-left petal
-ellipse(flowerX - petalDistance, flowerY - petalDistance, petalSize, petalSize);
+ellipse(flowerX - 25*flowerScale, flowerY - 25*flowerScale, petalSize, petalSize);
 
 // upper-right petal
-ellipse(flowerX + petalDistance, flowerY - petalDistance, petalSize, petalSize);
+ellipse(flowerX + 25*flowerScale, flowerY - 25*flowerScale, petalSize, petalSize);
 
 // lower-left petal
-ellipse(flowerX - petalDistance, flowerY + petalDistance, petalSize, petalSize);
+ellipse(flowerX - 25*flowerScale, flowerY + 25*flowerScale, petalSize, petalSize);
 
 // lower-right petal
-ellipse(flowerX + petalDistance, flowerY + petalDistance, petalSize, petalSize);
-
-fill(255, 0, 0);
+ellipse(flowerX + 25*flowerScale, flowerY + 25*flowerScale, petalSize, petalSize);
 
 // center petal
+fill(255, 0, 0);
 ellipse(flowerX, flowerY, petalSize, petalSize);
 ```
 
