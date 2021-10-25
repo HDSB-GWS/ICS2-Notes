@@ -235,6 +235,8 @@ float flowerY = height / 2;
 Remember: you can use a variable anywhere you can use a value, including when creating another variable!
 
 # Using a percentage value to Resize
+The previous example allows you to control the position of the flower on the screen using the `flowerX` and `flowerY` variables.  Unfortunately changing the size causes the flower to look quite strange.  To fix this we create a `flowerScale` variable that controls the size of the flower based on total percentage size.
+
 ```java
 size(300, 300);
 
@@ -265,7 +267,7 @@ fill(255, 0, 0);
 ellipse(flowerX, flowerY, petalSize, petalSize);
 ```
 
-//TODO: Add note to support this example
+
 
 
 
