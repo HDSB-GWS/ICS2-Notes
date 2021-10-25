@@ -94,19 +94,17 @@ This code uses the `width` and `height` variables to draw a flower that fills up
 
 The `width` and `height` variables are handy if you want to tie your sketch to the window size, but if you want more control, you can use your own variables. Let's rewrite this example to use your own variables now!
 
-Start by creating four variables that you'll use when drawing the flower:
+Start by creating three variables that you'll use when drawing the flower:
 
 ```java
 float flowerX = 150;
 float flowerY = 150;
-float petalSize = 100;
-float petalDistance = petalSize / 2;
+float petalSize = 50;
 ```
 
 - `flowerX` holds the horizontal position of the center of the flower.
 - `flowerY` holds the vertical position of the center of the flower.
 - `petalSize` holds the diameter of the petals.
-- `petalDistance` holds the space between the center of the flower and the four orange petals. Notice that this line uses the `petalSize` variable to calculate its value!
 
 Unlike the `width` and `height` variables, the names of these variable are completely up to you. You can name them anything you want.
 
@@ -117,8 +115,7 @@ size(300, 300);
 
 float flowerX = 150;
 float flowerY = 150;
-float petalSize = 100;
-float petalDistance = petalSize / 2;
+float petalSize = 50;
 
 background(0, 200, 0);
 
@@ -140,15 +137,14 @@ size(300, 300);
 
 float flowerX = 150;
 float flowerY = 150;
-float petalSize = 100;
-float petalDistance = petalSize / 2;
+float petalSize = 50;
 
 background(0, 200, 0);
 
 fill(255, 128, 0);
 
 // upper-left petal
-ellipse(flowerX - petalDistance, flowerY - petalDistance, petalSize, petalSize);
+ellipse(flowerX - 25, flowerY - 25, petalSize, petalSize);
 
 // center petal
 fill(255, 0, 0);
@@ -157,8 +153,8 @@ ellipse(flowerX, flowerY, petalSize, petalSize);
 
 If this new line is confusing, that's okay! Think about each argument being passed into the `ellipse` function.
 
-- Remember that `flowerX` is the horizontal center of the red petal, so `flowerX - petalDistance` is to the left of the red petal.
-- Similarly, `flowerY` is the vertical center of the red petal, so `flowerY - petalDistance` is above the red petal.
+- Remember that `flowerX` is the horizontal center of the red petal, so `flowerX - 25` is to the left of the red petal.
+- Similarly, `flowerY` is the vertical center of the red petal, so `flowerY - 25` is above the red petal.
 
 The result is another circle in the upper-left corner of the red petal:
 
@@ -168,10 +164,10 @@ Next, draw the upper-right petal:
 
 ```java
 // upper-right petal
-ellipse(flowerX + petalDistance, flowerY - petalDistance, petalSize, petalSize);
+ellipse(flowerX + 25, flowerY - 25, petalSize, petalSize);
 ```
 
-This is very similar to the line of code you just added, but it uses `flowerX + petalDistance` to calculate a position that's to the right of the red petal.
+This is very similar to the line of code you just added, but it uses `flowerX + 25` to calculate a position that's to the right of the red petal.
 
 ![three petals](images/creating-variables-6.png)
 
@@ -186,24 +182,23 @@ size(300, 300);
 
 float flowerX = 150;
 float flowerY = 150;
-float petalSize = 100;
-float petalDistance = petalSize / 2;
+float petalSize = 50;
 
 background(0, 200, 0);
 
 fill(255, 128, 0);
 
 // upper-left petal
-ellipse(flowerX - petalDistance, flowerY - petalDistance, petalSize, petalSize);
+ellipse(flowerX - 25, flowerY - 25, petalSize, petalSize);
 
 // upper-right petal
-ellipse(flowerX + petalDistance, flowerY - petalDistance, petalSize, petalSize);
+ellipse(flowerX + 25, flowerY - 25, petalSize, petalSize);
 
 // lower-left petal
-ellipse(flowerX - petalDistance, flowerY + petalDistance, petalSize, petalSize);
+ellipse(flowerX - 25, flowerY + 25, petalSize, petalSize);
 
 // lower-right petal
-ellipse(flowerX + petalDistance, flowerY + petalDistance, petalSize, petalSize);
+ellipse(flowerX + 25, flowerY + 25, petalSize, petalSize);
 
 // center petal
 fill(255, 0, 0);
@@ -219,7 +214,7 @@ If you want to change the size and location of the flower, now all you have to d
 ```java
 float flowerX = 100;
 float flowerY = 200;
-float petalSize = 75;
+float petalSize = 50;
 ```
 
 The rest of the code stays the same, but now the flower is smaller and in a different location.
@@ -240,6 +235,36 @@ float flowerY = height / 2;
 Remember: you can use a variable anywhere you can use a value, including when creating another variable!
 
 # Using a percentage value to Resize
+```java
+size(300, 300);
+
+float flowerScale = 0.5;
+float flowerX = 50;
+float flowerY = 150;
+float petalSize = 50*flowerScale;
+
+
+background(0, 200, 0);
+
+fill(255, 128, 0);
+
+// upper-left petal
+ellipse(flowerX - 25*flowerScale, flowerY - 25*flowerScale, petalSize, petalSize);
+
+// upper-right petal
+ellipse(flowerX + 25*flowerScale, flowerY - 25*flowerScale, petalSize, petalSize);
+
+// lower-left petal
+ellipse(flowerX - 25*flowerScale, flowerY + 25*flowerScale, petalSize, petalSize);
+
+// lower-right petal
+ellipse(flowerX + 25*flowerScale, flowerY + 25*flowerScale, petalSize, petalSize);
+
+// center petal
+fill(255, 0, 0);
+ellipse(flowerX, flowerY, petalSize, petalSize);
+```
+
 note to be added, until then here is a video note: https://drive.google.com/file/d/1c1rVFe4_YHNsHaY4qQfME1cNug9Gnow3/view?usp=sharing
 
 
