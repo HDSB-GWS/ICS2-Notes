@@ -7,11 +7,11 @@ void setup() {
 void draw() {
   background(50);
 
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 5; i+=1) {
     float circleX = 50 * (i + 1);
     ellipse(circleX, circleY[i], 25, 25);
 
-    circleY[i]++;
+    circleY[i] +=1;
 
     if (circleY[i] > height) {
       circleY[i] = 0;

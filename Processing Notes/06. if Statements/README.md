@@ -30,7 +30,7 @@ This might not seem very useful yet, but it will become more handy in a couple p
 
 ```java
 float score = 95;
-boolean isGradeA = score >= 90;
+boolean isGradeA = (score >= 90);
 ```
 
 This code creates a `float` variable named `score` and sets it equal to `95`. It then creates a `boolean` variable named `isGradeA` and sets it equal to the result of the inequality `score >= 90`. In this case, the inequality is `true` because `95` is greater than `90`. So at the end of this code, `isGradeA` is holding the `boolean` value of `true`.

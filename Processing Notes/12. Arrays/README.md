@@ -25,7 +25,7 @@ void draw() {
 
   ellipse(150, circleY, 25, 25);
 
-  circleY++;
+  circleY += 1;
 
   if (circleY > height) {
     circleY = 0;
@@ -55,7 +55,7 @@ void draw() {
   ellipse(100, circleYOne, 25, 25);
   ellipse(200, circleYTwo, 25, 25);
 
-  circleYOne++;
+  circleYOne += 1;
   circleYTwo += 2;
 
   if (circleYOne > height) {
@@ -151,7 +151,7 @@ void draw() {
   ellipse(100, circleY[0], 25, 25);
   ellipse(200, circleY[1], 25, 25);
 
-  circleY[0]++;
+  circleY[0] += 1;
   circleY[1] += 2;
 
   if (circleY[0] > height) {
@@ -185,7 +185,7 @@ This will work, but notice that this code contains a **pattern**: it uses an ind
 That means you can rewrite this code to use a `for` loop instead!
 
 ```java
-for (int i = 0; i < 5; i++) {
+for (int i = 0; i < 5; i+=1) {
   ellipse(50 * (i+1), circleY[i], 25, 25);
 }
 ```
@@ -206,7 +206,7 @@ void setup() {
 void draw() {
   background(50);
 
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 5; i+=1) {
     float circleX = 50 * (i + 1);
     ellipse(circleX, circleY[i], 25, 25);
 
@@ -230,13 +230,13 @@ When you're using a `for` loop with an array, you have to know how many values a
 When there are **two** values, the `for` loop looks like this:
 
 ```java
-for (int i = 0; i < 2; i++) {
+for (int i = 0; i < 2; i+=1) {
 ```
 
 And when there are **ten** values, the `for` loop looks like this:
 
 ```java
-for (int i = 0; i < 10; i++) {
+for (int i = 0; i < 10; i+=1) {
 ```
 
 In other words, you always want to stop the loop when its loop variable equals the number of elements in the array, which is also called the **length** of the array. If you try to access an index that's larger than the length, you'll get an error!
@@ -252,7 +252,7 @@ int numberOfValues = circleY.length;
 You can use this length variable exactly like you can any other variable, including in a `for` loop check:
 
 ```java
-for (int i = 0; i < circleY.length; i++) {
+for (int i = 0; i < circleY.length; i+=1) {
 ```
 
 Now if you add values to the array, you no longer have to modify the `for` loop check yourself. The `length` variable will always contain the length of the array, so the `for` loop will work no matter how many elements the array contains.
@@ -290,7 +290,7 @@ Now you can set the value of each of the indexes individually:
 Or better yet, you can use a `for` loop:
 
 ```java
-for (int i = 0; i < circleY.length; i++) {
+for (int i = 0; i < circleY.length; i+=1) {
   circleY[i] = (i + 1) * 50;
 }
 ```
@@ -301,22 +301,24 @@ Putting all of this together, here's an example that shows 25 falling circles:
 
 ```java
 float[] circleY = new float[25];
+float[] circleX = new float[25];
 
 void setup() {
   size(300, 300);
-  for (int i = 0; i < circleY.length; i++) {
+  for (int i = 0; i < circleY.length; i+=1) {
     circleY[i] = random(height);
+    circleX[i] = random(width);
+      
   }
 }
 
 void draw() {
   background(50);
 
-  for (int i = 0; i < circleY.length; i++) {
-    float circleX = width * i / circleY.length;
-    ellipse(circleX, circleY[i], 25, 25);
+  for (int i = 0; i < circleY.length; i+=1) {
+    ellipse(circleX[i], circleY[i], 25, 25);
 
-    circleY[i]++;
+    circleY[i] += 1;
 
     if (circleY[i] > height) {
       circleY[i] = 0;
