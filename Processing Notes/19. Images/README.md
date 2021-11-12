@@ -45,7 +45,7 @@ PImage img;
 
 void setup() {
   size(300, 300);
-  img = loadImage("ttps://happycoding.io/images/stanley-1.jpg");
+  img = loadImage("https://happycoding.io/images/stanley-1.jpg");
 }
 
 void draw() {
