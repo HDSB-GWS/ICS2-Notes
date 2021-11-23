@@ -24,7 +24,7 @@ void draw() {
   
 }
 
-void mouseClicked() {
+void mouseReleased() {
   if (gameState == "start screen") {
     gameState = "red screen";
   }
