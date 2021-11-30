@@ -35,7 +35,7 @@ void draw() {
   currentTime = millis();
 
   //Check to see if the time has elapsed    
-  if (ellipseDrawTime < currentTime) {
+  if (currentTime > ellipseDrawTime) {
     //Draw a random ellipse
     fill(random(255), random(255), random(255));
     ellipse(random(400), random(400), random(50), random(50));
